@@ -1,0 +1,19 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Testing Mongo with Angular</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    @Styles.Render("~/Content/css")
+</head>
+<body ng-app="mongoAngular">
+    <div ng-view></div>
+    @Scripts.Render(
+            "~/bundles/jquery",
+            "~/bundles/jqueryval",
+            "~/bundles/modernizr",
+            "~/bundles/bootstrap",
+            "~/bundles/angular",
+            "~/bundles/restangular",
+            "~/bundles/mongo-angular")
+</body>
+</html>

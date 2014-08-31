@@ -1,0 +1,11 @@
+TestingMongo.Mongo/bin/
+TestingMongo.Mongo/obj/
+TestingMongo.Services/bin/
+TestingMongo.Data/obj/
+TestingMongoWithAngular/obj/
+TestingMongo.Services/obj/
+TestingMongo/bin/
+TestingMongo/obj/
+TestingMongoWithAngular/bin/
+packages/
+*.map
