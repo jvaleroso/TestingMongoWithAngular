@@ -1,15 +1,9 @@
-﻿using System;
-using System.Collections.Concurrent;
-using System.Collections.Generic;
+﻿using System.Collections.Concurrent;
 using System.Configuration;
-using System.Linq;
-using System.Runtime.InteropServices;
-using System.Text;
-using System.Threading.Tasks;
 using MongoDB.Driver;
-using TestingMongo.Properties;
+using TestingMongo.Mongo.Properties;
 
-namespace TestingMongo.Data
+namespace TestingMongo.Mongo
 {
     public class MongoContext
     {
@@ -27,21 +21,21 @@ namespace TestingMongo.Data
 
         public MongoContext(string connectionString, string db)
         {
-            _connectionString = connectionString;
-            _db = db;
+            this._connectionString = connectionString;
+            this._db = db;
         }
 
         public MongoCollection GetCollection(string collectionName)
         {
             MongoClient mongoClient;
 
-            if (!MongoClients.TryGetValue(_connectionString, out mongoClient))
+            if (!MongoClients.TryGetValue(this._connectionString, out mongoClient))
             {
-                mongoClient = new MongoClient(_connectionString);
-                MongoClients.TryAdd(_connectionString, mongoClient);
+                mongoClient = new MongoClient(this._connectionString);
+                MongoClients.TryAdd(this._connectionString, mongoClient);
             }
 
-            var db = mongoClient.GetServer().GetDatabase(_db);
+            var db = mongoClient.GetServer().GetDatabase(this._db);
             return db.GetCollection(collectionName);
         }
     }

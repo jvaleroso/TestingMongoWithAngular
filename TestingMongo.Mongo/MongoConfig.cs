@@ -2,7 +2,7 @@
 using MongoDB.Bson.Serialization.Conventions;
 using MongoDB.Bson.Serialization.IdGenerators;
 
-namespace TestingMongo.Data
+namespace TestingMongo.Mongo
 {
     public class MongoConfig
     {

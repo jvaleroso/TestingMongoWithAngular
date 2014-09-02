@@ -1,10 +1,7 @@
 ﻿using System.Net;
 using System.Net.Http;
-using System.Runtime.InteropServices;
 using System.Web.Http;
-using System.Web.Http.Results;
 using TestingMongo;
-using TestingMongo.Data;
 using TestingMongo.Services;
 
 namespace TestingMongoWithAngular.Controllers.Api

@@ -12,6 +12,7 @@
         addCustomer(customer: MongoAngular.Model.ICustomer) {
             this.customerService.saveCustomer(customer).then((c) => {
                 this.customers.push(c);
+                this.customer = null;
             },
                 (error: Error) => {
                     console.log(error.message);

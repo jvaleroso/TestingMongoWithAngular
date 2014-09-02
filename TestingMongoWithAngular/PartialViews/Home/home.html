@@ -1,39 +1,39 @@
 ﻿<div class="container">
     <div class="row">
-        <form id="form" role="form" class="form-horizontal">
+        <form id="customerForm" name="customerForm" role="form" class="form-horizontal">
             <div class="form-group">
                 <label for="firstName" class="col-sm-2">First Name</label>
                 <div class="col-sm-10">
-                    <input type="text" class="form-control" id="firstName" ng-model="customerCtrl.customer.firstName" />
+                    <input type="text" class="form-control" id="firstName" ng-model="customerCtrl.customer.firstName" required />
                 </div>
             </div>
             <div class="form-group">
                 <label for="middleInitial" class="col-sm-2">Middle Initial</label>
                 <div class="col-sm-10">
-                    <input type="text" maxlength="1" class="form-control" id="middleInitial" ng-model="customerCtrl.customer.middleInitial" />
+                    <input type="text" maxlength="1" ng-maxlength="1" class="form-control" id="middleInitial" ng-model="customerCtrl.customer.middleInitial" required />
                 </div>
             </div>
             <div class="form-group">
                 <label for="lastName" class="col-sm-2">Last Name</label>
                 <div class="col-sm-10">
-                    <input type="text" class="form-control" id="lastName" ng-model="customerCtrl.customer.lastName" />
+                    <input type="text" class="form-control" id="lastName" ng-model="customerCtrl.customer.lastName" required />
                 </div>
             </div>
             <div class="form-group">
                 <label for="address" class="col-sm-2">Address</label>
                 <div class="col-sm-10">
-                    <textarea maxlength="200" class="form-control" id="address" ng-model="customerCtrl.customer.address"></textarea>
+                    <textarea maxlength="200" class="form-control" id="address" ng-model="customerCtrl.customer.address" required></textarea>
                 </div>
             </div>
             <div class="form-group">
                 <label for="birthdate" class="col-sm-2">Birth Date</label>
                 <div class="col-sm-10">
-                    <input type="text" class="form-control" id="birthdate" ng-model="customerCtrl.customer.birthDate" />
+                    <input type="text" class="form-control" id="birthdate" ng-model="customerCtrl.customer.birthDate" required />
                 </div>
             </div>
             <div class="form-group">
                 <div class="col-sm-12">
-                    <button class="btn btn-default" ng-click="customerCtrl.addCustomer(customerCtrl.customer)">Save</button>
+                    <button class="btn btn-default" ng-disabled="customerForm.$invalid" ng-click="customerCtrl.addCustomer(customerCtrl.customer)">Save</button>
                 </div>
             </div>
         </form>
@@ -60,7 +60,7 @@
                         <span ng-bind="cust.Address"></span>
                     </td>
                 </tr>
-                <tr ng-show="!customerCtrl.customers">
+                <tr ng-show="customerCtrl.customers == 0">
                     <td colspan="3" style="text-align: center"><em>No results found.</em></td>
                 </tr>
             </tbody>

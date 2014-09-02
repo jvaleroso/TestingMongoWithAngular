@@ -10,6 +10,7 @@
                 var _this = this;
                 this.customerService.saveCustomer(customer).then(function (c) {
                     _this.customers.push(c);
+                    _this.customer = null;
                 }, function (error) {
                     console.log(error.message);
                 });
