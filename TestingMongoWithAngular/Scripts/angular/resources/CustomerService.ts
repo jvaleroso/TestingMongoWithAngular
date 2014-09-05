@@ -5,6 +5,7 @@ module MongoAngular.Resource {
     export class CustomerService {
 
         private customerService: restangular.IElement;
+        private restangularService: restangular.IService;
 
         constructor(private restanguler: restangular.IElement) {
             this.customerService = restanguler.all('customer');
@@ -18,8 +19,8 @@ module MongoAngular.Resource {
             return this.customerService.getList();
         }
 
-        updateCustomer(customer: MongoAngular.Model.ICustomer) {
-            return this.customerService.put(customer);
+        getCustomerById(id: string) {
+            return this.customerService.one(id).get();
         }
     }
 

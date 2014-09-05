@@ -14,8 +14,8 @@
                 return this.customerService.getList();
             };
 
-            CustomerService.prototype.updateCustomer = function (customer) {
-                return this.customerService.put(customer);
+            CustomerService.prototype.getCustomerById = function (id) {
+                return this.customerService.one(id).get();
             };
             return CustomerService;
         })();

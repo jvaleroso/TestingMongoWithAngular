@@ -22,6 +22,13 @@ namespace TestingMongoWithAngular.Controllers.Api
             return Request.CreateResponse(HttpStatusCode.OK, customers);
         }
 
+        [HttpGet]
+        public HttpResponseMessage GetCustomer(string id)
+        {
+            var customer = _customerService.GetById(id);
+            return Request.CreateResponse(HttpStatusCode.OK, customer);
+        }
+
         [HttpPut]
         public HttpResponseMessage UpdateCustomer(Customer customer)
         {

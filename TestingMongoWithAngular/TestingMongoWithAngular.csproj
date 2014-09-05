@@ -506,7 +506,6 @@
   <ItemGroup>
     <TypeScriptCompile Include="Scripts\angular\app.ts" />
     <TypeScriptCompile Include="Scripts\angular\controllers\CustomerController.ts" />
-    <TypeScriptCompile Include="Scripts\angular\controllers\HomeController.ts" />
     <TypeScriptCompile Include="Scripts\angular\models\ICustomer.ts" />
     <TypeScriptCompile Include="Scripts\angular\resources\CustomerService.ts" />
     <TypeScriptCompile Include="Scripts\typings\angularjs\angular-animate.d.ts" />

@@ -33,7 +33,8 @@
             </div>
             <div class="form-group">
                 <div class="col-sm-12">
-                    <button class="btn btn-default" ng-disabled="customerForm.$invalid" ng-click="customerCtrl.addCustomer(customerCtrl.customer)">Save</button>
+                    <button class="btn btn-default" ng-disabled="customerForm.$invalid" ng-show="!customerCtrl.showUpdateButton" ng-click="customerCtrl.addCustomer(customerCtrl.customer)">Save</button>
+                    <button class="btn btn-default" ng-disabled="customerForm.$invalid" ng-show="customerCtrl.showUpdateButton" ng-click="customerCtrl.updateCustomer(customerCtrl.customer)">Update</button>
                 </div>
             </div>
         </form>
@@ -44,20 +45,24 @@
                     <th>Full Name</th>
                     <th>Birthdate</th>
                     <th>Address</th>
+                    <th></th>
                 </tr>
             </thead>
             <tbody>
                 <tr ng-repeat="cust in customerCtrl.customers">
                     <td>
-                        <span ng-bind="cust.FirstName"></span>&nbsp;
-                        <span ng-bind="cust.MiddleInitial"></span>&nbsp;
-                        <span ng-bind="cust.LastName"></span>
+                        <span ng-bind="cust.firstName"></span>&nbsp;
+                        <span ng-bind="cust.middleInitial"></span>&nbsp;
+                        <span ng-bind="cust.lastName"></span>
                     </td>
                     <td>
-                        <span ng-bind="cust.BirthDate" ng-show="cust.BirthDate"></span>
+                        <span ng-bind="cust.birthDate"></span>
                     </td>
                     <td>
-                        <span ng-bind="cust.Address"></span>
+                        <span ng-bind="cust.address"></span>
+                    </td>
+                    <td>
+                        <button ng-click="customerCtrl.editCustomer(cust.id)">Edit</button>
                     </td>
                 </tr>
                 <tr ng-show="customerCtrl.customers == 0">
