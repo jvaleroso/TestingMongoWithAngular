@@ -46,6 +46,7 @@
                     <th>Birthdate</th>
                     <th>Address</th>
                     <th></th>
+                    <th></th>
                 </tr>
             </thead>
             <tbody>
@@ -62,7 +63,10 @@
                         <span ng-bind="cust.address"></span>
                     </td>
                     <td>
-                        <button ng-click="customerCtrl.editCustomer(cust.id)">Edit</button>
+                        <button class="glyphicon glyphicon-edit" ng-click="customerCtrl.editCustomer(cust.id)">Edit</button>
+                    </td>
+                    <td>
+                        <button class="glyphicon glyphicon-remove" ng-click="customerCtrl.deleteCustomer(cust.id)">Delete</button>
                     </td>
                 </tr>
                 <tr ng-show="customerCtrl.customers == 0">

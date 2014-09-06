@@ -13,5 +13,6 @@
         }])
         .config(['RestangularProvider', (restangularProvider: restangular.IProvider) => {
             restangularProvider.setBaseUrl('/api');
+            restangularProvider.setDefaultHeaders({ 'Content-Type': 'application/json' });
         }]);
 } 

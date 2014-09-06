@@ -2,9 +2,9 @@
 (function (MongoAngular) {
     (function (Resource) {
         var CustomerService = (function () {
-            function CustomerService(restanguler) {
-                this.restanguler = restanguler;
-                this.customerService = restanguler.all('customer');
+            function CustomerService(restangular) {
+                this.restangular = restangular;
+                this.customerService = restangular.all('customer');
             }
             CustomerService.prototype.saveCustomer = function (customer) {
                 return this.customerService.post(customer);
@@ -15,7 +15,15 @@
             };
 
             CustomerService.prototype.getCustomerById = function (id) {
-                return this.customerService.one(id).get();
+                return this.restangular.one('customer', id).get();
+            };
+
+            CustomerService.prototype.removeCustomer = function (customer) {
+                return customer.remove();
+            };
+
+            CustomerService.prototype.updateCustomer = function (customer) {
+                return customer.put();
             };
             return CustomerService;
         })();

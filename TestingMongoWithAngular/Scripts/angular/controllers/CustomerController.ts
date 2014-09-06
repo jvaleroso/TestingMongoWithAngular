@@ -1,65 +1,69 @@
 ﻿module MongoAngular.Controllers {
 
-    export interface ICustomerParam extends ng.route.IRouteParamsService {
-        id: string;
-    }
-
     export class CustomerController {
         private customers: MongoAngular.Model.ICustomer[];
         private customer: MongoAngular.Model.ICustomer;
         private restangularService: restangular.IService;
         private showUpdateButton: boolean;
 
-        constructor(
-            private $routeParams: ICustomerParam,
-            private customerService: MongoAngular.Resource.CustomerService) {
-
+        constructor(private customerService: MongoAngular.Resource.CustomerService) {
             this.getCustomers();
             this.showUpdateButton = false;
         }
 
-        public addCustomer(customer: MongoAngular.Model.ICustomer) {
-            this.customerService.saveCustomer(customer).then((c) => {
-                this.customers.push(c);
-                this.resetCustomer();
-            },
-                (error: Error) => {
-                    console.log(error.message);
-                });
+        private logError(error: Error) {
+            console.log(error.message);
         }
 
         private resetCustomer() {
             this.customer = null;
         }
 
+        public addCustomer(customer: MongoAngular.Model.ICustomer) {
+            this.customerService.saveCustomer(customer).then((c) => {
+                this.customers.push(c);
+                this.resetCustomer();
+            }, this.logError);
+        }
+
         public updateCustomer(customer) {
-            customer.put().then(() => {
+
+            this.customerService.updateCustomer(customer).then(() => {
+                this.showUpdateButton = false;
                 this.resetCustomer();
                 this.getCustomers();
+            }, this.logError);
+        }
+
+        public deleteCustomer(id: string) {
+
+            this.customerService.getCustomerById(id).then((c) => {
+                this.customerService.removeCustomer(c).then(() => {
+                    this.getCustomers();
+                }, (error: Error) => {
+                        console.log(error.message);
+                    });
             }, (error: Error) => {
-                console.log(error.message);
-            });
+                    console.log(error.message);
+                });
         }
 
         public getCustomers() {
             this.customerService.getCustomers().then((customers: MongoAngular.Model.ICustomer[]) => {
                 this.customers = customers;
-            }, (error: Error) => {
-                    console.log(error.message);
-                });
+            }, this.logError);
         }
 
         public editCustomer(id: string) {
             this.showUpdateButton = true;
             this.customerService.getCustomerById(id).then((c) => {
                 this.customer = c;
-            });
+            }, this.logError);
         }
     }
 
     angular.module('mongoAngular')
         .controller('CustomerController', [
-            '$routeParams',
             'CustomerService',
             CustomerController
         ]);

@@ -7,8 +7,8 @@ module MongoAngular.Resource {
         private customerService: restangular.IElement;
         private restangularService: restangular.IService;
 
-        constructor(private restanguler: restangular.IElement) {
-            this.customerService = restanguler.all('customer');
+        constructor(private restangular: restangular.IElement) {
+            this.customerService = restangular.all('customer');
         }
 
         saveCustomer(customer: MongoAngular.Model.ICustomer) {
@@ -20,7 +20,15 @@ module MongoAngular.Resource {
         }
 
         getCustomerById(id: string) {
-            return this.customerService.one(id).get();
+            return this.restangular.one('customer', id).get();
+        }
+
+        removeCustomer(customer) {
+            return customer.remove();
+        }
+
+        updateCustomer(customer) {
+            return customer.put();
         }
     }
 

@@ -11,6 +11,7 @@
         }]).config([
         'RestangularProvider', function (restangularProvider) {
             restangularProvider.setBaseUrl('/api');
+            restangularProvider.setDefaultHeaders({ 'Content-Type': 'application/json' });
         }]);
 })(MongoAngular || (MongoAngular = {}));
 //# sourceMappingURL=app.js.map

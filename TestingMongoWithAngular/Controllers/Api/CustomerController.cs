@@ -41,7 +41,14 @@ namespace TestingMongoWithAngular.Controllers.Api
         public HttpResponseMessage SaveCustomer(Customer customer)
         {
             _customerService.Save(customer);
-            return Request.CreateResponse(HttpStatusCode.OK, customer);
+            return Request.CreateResponse(HttpStatusCode.Created, customer);
+        }
+
+        [HttpDelete]
+        public HttpResponseMessage DeleteCustomer(Customer customer)
+        {
+            _customerService.Delete(customer);
+            return Request.CreateResponse(HttpStatusCode.NoContent);
         }
     }
 }

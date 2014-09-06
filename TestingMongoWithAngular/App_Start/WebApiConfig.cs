@@ -16,13 +16,6 @@ namespace TestingMongoWithAngular
             config.MapHttpAttributeRoutes();
 
             config.Routes.MapHttpRoute(
-                "GetCustomerById",
-                "api/Home/{id}",
-                new { controller = "Home", action = "GetCustomer" },
-                new { httpMethod = new HttpMethodConstraint("GET") })
-            ;
-
-            config.Routes.MapHttpRoute(
                 name: "DefaultApi",
                 routeTemplate: "api/{controller}/{id}",
                 defaults: new { id = RouteParameter.Optional }
