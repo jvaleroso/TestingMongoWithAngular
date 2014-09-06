@@ -21,21 +21,21 @@ namespace TestingMongo.Mongo
 
         public MongoContext(string connectionString, string db)
         {
-            this._connectionString = connectionString;
-            this._db = db;
+            _connectionString = connectionString;
+            _db = db;
         }
 
         public MongoCollection GetCollection(string collectionName)
         {
             MongoClient mongoClient;
 
-            if (!MongoClients.TryGetValue(this._connectionString, out mongoClient))
+            if (!MongoClients.TryGetValue(_connectionString, out mongoClient))
             {
-                mongoClient = new MongoClient(this._connectionString);
-                MongoClients.TryAdd(this._connectionString, mongoClient);
+                mongoClient = new MongoClient(_connectionString);
+                MongoClients.TryAdd(_connectionString, mongoClient);
             }
 
-            var db = mongoClient.GetServer().GetDatabase(this._db);
+            var db = mongoClient.GetServer().GetDatabase(_db);
             return db.GetCollection(collectionName);
         }
     }

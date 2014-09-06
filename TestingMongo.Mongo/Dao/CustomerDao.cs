@@ -1,9 +1,6 @@
-﻿using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.Configuration;
+﻿using MongoDB.Driver.Builders;
+using System.Collections.Generic;
 using System.Linq;
-using MongoDB.Driver;
-using MongoDB.Driver.Builders;
 using TestingMongo.Data;
 
 namespace TestingMongo.Mongo.Dao

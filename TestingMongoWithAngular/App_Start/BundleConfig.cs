@@ -1,6 +1,4 @@
-﻿using System.Web;
-using System.Web.Optimization;
-using MongoDB.Driver.Linq;
+﻿using System.Web.Optimization;
 
 namespace TestingMongoWithAngular
 {
