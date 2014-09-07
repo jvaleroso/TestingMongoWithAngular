@@ -4,7 +4,9 @@
         var CustomerController = (function () {
             function CustomerController(customerService) {
                 this.customerService = customerService;
+                this.isLoadingData = true;
                 this.getCustomers();
+                this.isLoadingData = false;
                 this.showUpdateButton = false;
             }
             CustomerController.prototype.logError = function (error) {
@@ -13,6 +15,11 @@
 
             CustomerController.prototype.resetCustomer = function () {
                 this.customer = null;
+            };
+
+            CustomerController.prototype.cancel = function () {
+                this.customer = null;
+                this.showUpdateButton = false;
             };
 
             CustomerController.prototype.addCustomer = function (customer) {

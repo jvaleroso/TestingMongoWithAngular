@@ -3,11 +3,13 @@
     export class CustomerController {
         private customers: MongoAngular.Model.ICustomer[];
         private customer: MongoAngular.Model.ICustomer;
-        private restangularService: restangular.IService;
         private showUpdateButton: boolean;
+        private isLoadingData: boolean;
 
         constructor(private customerService: MongoAngular.Resource.CustomerService) {
+            this.isLoadingData = true;
             this.getCustomers();
+            this.isLoadingData = false;
             this.showUpdateButton = false;
         }
 
@@ -17,6 +19,11 @@
 
         private resetCustomer() {
             this.customer = null;
+        }
+
+        public cancel() {
+            this.customer = null;
+            this.showUpdateButton = false;
         }
 
         public addCustomer(customer: MongoAngular.Model.ICustomer) {
