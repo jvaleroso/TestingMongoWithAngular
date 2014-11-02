@@ -9,3 +9,5 @@ TestingMongo/obj/
 TestingMongoWithAngular/bin/
 packages/
 *.map
+*.user
+*.suo

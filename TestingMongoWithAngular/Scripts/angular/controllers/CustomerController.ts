@@ -7,9 +7,7 @@
         private isLoadingData: boolean;
 
         constructor(private customerService: MongoAngular.Resource.CustomerService) {
-            this.isLoadingData = true;
             this.getCustomers();
-            this.isLoadingData = false;
             this.showUpdateButton = false;
         }
 
@@ -56,8 +54,11 @@
         }
 
         public getCustomers() {
+            this.isLoadingData = true;
+
             this.customerService.getCustomers().then((customers: MongoAngular.Model.ICustomer[]) => {
                 this.customers = customers;
+                this.isLoadingData = false;
             }, this.logError);
         }
 
