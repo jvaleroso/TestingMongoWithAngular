@@ -1,6 +1,7 @@
 ﻿
+module mongoAngular.Resource {
 
-module MongoAngular.Resource {
+    import customerModel = mongoAngular.Models.Customer;
 
     export class CustomerService {
 
@@ -11,7 +12,7 @@ module MongoAngular.Resource {
             this.customerService = restangular.all('customer');
         }
 
-        saveCustomer(customer: MongoAngular.Model.ICustomer) {
+        saveCustomer(customer: customerModel) {
             return this.customerService.post(customer);
         }
 

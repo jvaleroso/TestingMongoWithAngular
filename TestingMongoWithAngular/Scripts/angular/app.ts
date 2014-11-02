@@ -1,4 +1,4 @@
-﻿module MongoAngular {
+﻿module mongoAngular {
 
     var app = angular.module('mongoAngular', ['ngResource', 'ngRoute', 'restangular']);
 

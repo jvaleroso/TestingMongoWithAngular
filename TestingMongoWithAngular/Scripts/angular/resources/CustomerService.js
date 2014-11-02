@@ -1,5 +1,5 @@
-﻿var MongoAngular;
-(function (MongoAngular) {
+﻿var mongoAngular;
+(function (mongoAngular) {
     (function (Resource) {
         var CustomerService = (function () {
             function CustomerService(restangular) {
@@ -33,7 +33,7 @@
             'Restangular',
             CustomerService
         ]);
-    })(MongoAngular.Resource || (MongoAngular.Resource = {}));
-    var Resource = MongoAngular.Resource;
-})(MongoAngular || (MongoAngular = {}));
+    })(mongoAngular.Resource || (mongoAngular.Resource = {}));
+    var Resource = mongoAngular.Resource;
+})(mongoAngular || (mongoAngular = {}));
 //# sourceMappingURL=CustomerService.js.map

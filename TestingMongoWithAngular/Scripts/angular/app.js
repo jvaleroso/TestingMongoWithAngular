@@ -1,5 +1,5 @@
-﻿var MongoAngular;
-(function (MongoAngular) {
+﻿var mongoAngular;
+(function (mongoAngular) {
     var app = angular.module('mongoAngular', ['ngResource', 'ngRoute', 'restangular']);
 
     app.config([
@@ -13,5 +13,5 @@
             restangularProvider.setBaseUrl('/api');
             restangularProvider.setDefaultHeaders({ 'Content-Type': 'application/json' });
         }]);
-})(MongoAngular || (MongoAngular = {}));
+})(mongoAngular || (mongoAngular = {}));
 //# sourceMappingURL=app.js.map

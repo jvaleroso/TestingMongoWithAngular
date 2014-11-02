@@ -27,15 +27,15 @@
             </div>
             <div class="form-group">
                 <label for="birthdate" class="col-sm-2">Birth Date</label>
-                <div class="col-sm-10">
-                    <input type="date" placeholder="Birth Date" class="form-control" id="birthdate" ng-model="customerCtrl.customer.birthDate" required />
+                <div class="col-sm-10"> 
+                    <input type="text" placeholder="Birth Date" class="form-control" id="birthdate" ng-model="customerCtrl.birthDate" ng-change="customerCtrl.updateBirthDate()" required />
                 </div>
             </div>
             <div class="form-group">
                 <div class="col-sm-12">
                     <button class="btn btn-default" ng-disabled="customerForm.$invalid" ng-show="!customerCtrl.showUpdateButton" ng-click="customerCtrl.addCustomer(customerCtrl.customer)">Save</button>
                     <button class="btn btn-default" ng-disabled="customerForm.$invalid" ng-show="customerCtrl.showUpdateButton" ng-click="customerCtrl.updateCustomer(customerCtrl.customer)">Update</button>
-                    <button class="btn btn-default" ng-show="customerCtrl.showUpdateButton" onclick="return false" ng-click="customerCtrl.cancel()">Cancel</button>     
+                    <button class="btn btn-default" ng-show="customerCtrl.showUpdateButton" onclick="return false" ng-click="customerCtrl.cancel()">Cancel</button>
                 </div>
             </div>
         </form>
@@ -51,14 +51,14 @@
                 </tr>
             </thead>
             <tbody>
-                <tr ng-repeat="cust in customerCtrl.customers" ng-if="!customerCtrl.isLoadingData">
+                <tr ng-repeat="cust in customerCtrl.customerList" ng-if="!customerCtrl.isLoadingData">
                     <td>
                         <span ng-bind="cust.firstName"></span>&nbsp;
                         <span ng-bind="cust.middleInitial"></span>&nbsp;
                         <span ng-bind="cust.lastName"></span>
                     </td>
                     <td>
-                        <span ng-bind="cust.birthDate"></span>
+                        <span ng-bind="cust.birthDate | date: 'dd-MMM-yyyy'"></span>
                     </td>
                     <td>
                         <span ng-bind="cust.address"></span>
@@ -73,7 +73,7 @@
                 <tr ng-if="customerCtrl.isLoadingData">
                     <td colspan="3" style="text-align: center"><i class="fa fa-refresh fa-spin fa-2x"></i><em> Loding data...</em></td>
                 </tr>
-                <tr ng-if="customerCtrl.customers == 0">
+                <tr ng-if="customerCtrl.customerList == 0 && !customerCtrl.isLoadingData">
                     <td colspan="3" style="text-align: center"><em>No results found.</em></td>
                 </tr>
             </tbody>

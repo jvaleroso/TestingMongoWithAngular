@@ -3,8 +3,8 @@
 <head>
     <title>Testing Mongo with Angular</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    @Styles.Render("~/Content/css")
-</head>
+        @Styles.Render("~/Content/css")
+  </head>
 <body ng-app="mongoAngular">
     <div ng-view></div>
     @Scripts.Render(
@@ -13,7 +13,11 @@
             "~/bundles/modernizr",
             "~/bundles/bootstrap",
             "~/bundles/angular",
-            "~/bundles/restangular",
-            "~/bundles/mongo-angular")
+            "~/bundles/restangular")
+
+    <script src="~/Scripts/angular/app.js"></script>
+    <script src="~/Scripts/angular/models/Customer.js"></script>
+    <script src="~/Scripts/angular/resources/CustomerService.js"></script>
+    <script src="~/Scripts/angular/controllers/CustomerController.js"></script>
 </body>
 </html>
