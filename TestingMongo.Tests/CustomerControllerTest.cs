@@ -9,7 +9,6 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Newtonsoft.Json;
 using TestingMongo.Services;
 using TestingMongoWithAngular;
-using Unity.WebApi;
 
 namespace TestingMongo.Tests
 {
@@ -21,8 +20,8 @@ namespace TestingMongo.Tests
         [TestInitialize]
         public void Initialze()
         {
-            this._customerService = A.Fake<ICustomerService>();
-            UnityConfig.GetConfiguredContainer().RegisterInstance(this._customerService);
+            _customerService = A.Fake<ICustomerService>();
+            UnityConfig.GetConfiguredContainer().RegisterInstance(_customerService);
         }
 
         [TestMethod]
@@ -34,7 +33,7 @@ namespace TestingMongo.Tests
                 new Customer {FirstName = "Roj", LastName = "Berana", Address = "Calamba, Laguna"}
             };
 
-            A.CallTo(() => this._customerService.GetList()).Returns(customers);
+            A.CallTo(() => _customerService.GetList()).Returns(customers);
 
             var config = new HttpConfiguration { IncludeErrorDetailPolicy = IncludeErrorDetailPolicy.Always };
             WebApiConfig.Register(config);
