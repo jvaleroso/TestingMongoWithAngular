@@ -1,4 +1,5 @@
-﻿using Microsoft.Practices.Unity;
+﻿using System;
+using Microsoft.Practices.Unity;
 using System.Web.Http;
 using TestingMongo.Data;
 using TestingMongo.Mongo;
@@ -10,7 +11,14 @@ namespace TestingMongoWithAngular
 {
     public static class UnityConfig
     {
-        public static void RegisterComponents()
+        private static readonly Lazy<IUnityContainer> Container = new Lazy<IUnityContainer>(CreateContainer);
+
+        public static IUnityContainer GetConfiguredContainer()
+        {
+            return Container.Value;
+        }
+  
+        public static UnityContainer CreateContainer()
         {
             var container = new UnityContainer();
 
@@ -28,10 +36,11 @@ namespace TestingMongoWithAngular
 
             #endregion
 
-            container.RegisterInstance(typeof (MongoContext), new MongoContext(),
+            container.RegisterInstance(typeof(MongoContext), new MongoContext(),
                 new ContainerControlledLifetimeManager());
 
-            GlobalConfiguration.Configuration.DependencyResolver = new UnityDependencyResolver(container);
+            //GlobalConfiguration.Configuration.DependencyResolver = new UnityDependencyResolver(container);
+            return container;
         }
     }
 }

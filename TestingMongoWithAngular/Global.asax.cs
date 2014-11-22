@@ -22,7 +22,7 @@ namespace TestingMongoWithAngular
 
             AreaRegistration.RegisterAllAreas();
 
-            UnityConfig.RegisterComponents();
+            UnityConfig.GetConfiguredContainer();
             MongoConfig.RegisterClassMaps();    
             WebApiConfig.Register(GlobalConfiguration.Configuration);
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);

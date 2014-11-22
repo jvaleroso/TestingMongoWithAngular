@@ -15,7 +15,7 @@
             };
 
             CustomerService.prototype.getCustomerById = function (id) {
-                return this.customerService.customGET('', id);
+                return this.customerService.one(id).get();
             };
 
             CustomerService.prototype.removeCustomer = function (customer) {

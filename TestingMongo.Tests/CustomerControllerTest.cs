@@ -1,56 +1,64 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Net;
 using System.Net.Http;
 using System.Threading;
 using System.Web.Http;
 using FakeItEasy;
+using Microsoft.Practices.Unity;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Newtonsoft.Json;
 using TestingMongo.Services;
 using TestingMongoWithAngular;
+using Unity.WebApi;
 
 namespace TestingMongo.Tests
 {
     [TestClass]
     public class CustomerControllerTest
     {
+        private ICustomerService _customerService;
+
+        [TestInitialize]
+        public void Initialze()
+        {
+            this._customerService = A.Fake<ICustomerService>();
+            UnityConfig.GetConfiguredContainer().RegisterInstance(this._customerService);
+        }
+
         [TestMethod]
         public void GetCustomers_Test()
         {
-            UnityConfig.RegisterComponents();
-    
-            var config = new HttpConfiguration{ IncludeErrorDetailPolicy = IncludeErrorDetailPolicy.Always};
-
-            WebApiConfig.Register(config);
-
-            var server = new HttpServer(config);
-
             var customers = new List<Customer>
             {
                 new Customer {FirstName = "Jayson", LastName = "Valeroso", Address = "Taytay, Rizal"},
                 new Customer {FirstName = "Roj", LastName = "Berana", Address = "Calamba, Laguna"}
             };
 
-            var customerService = A.Fake<ICustomerService>();
+            A.CallTo(() => this._customerService.GetList()).Returns(customers);
 
-            A.CallTo(() => customerService.GetList()).Returns(customers);
+            var config = new HttpConfiguration { IncludeErrorDetailPolicy = IncludeErrorDetailPolicy.Always };
+            WebApiConfig.Register(config);
+           
+            //IMPORTANT!
+            UnityWebApiActivator.PopulateConfiguration(config);
 
-            using (var client = new HttpMessageInvoker(server))
+            var server = new HttpServer(config);
+            //Do not put HttpMessageInvoker in using statement. Causes stack overflow
+            var client = new HttpMessageInvoker(server);
+
+            using (var request = new HttpRequestMessage(HttpMethod.Get, "http://localhost:52942/api/customers"))
             {
-                using (var request = new HttpRequestMessage(HttpMethod.Get, "http://localhost/api/customers"))
+                using (var response = client.SendAsync(request, CancellationToken.None).Result)
                 {
-                    using (var response = client.SendAsync(request, CancellationToken.None).Result)
-                    {
-                        var customerResponse = JsonConvert.DeserializeObject<IList<Customer>>
-                            (response.Content.ReadAsStringAsync().Result);
+                    var customerResponse = JsonConvert.DeserializeObject<IList<Customer>>
+                        (response.Content.ReadAsStringAsync().Result);
 
-                        Assert.IsNotNull(response);
-                        Assert.AreEqual(HttpStatusCode.OK, response.StatusCode);
-                        Assert.AreEqual(customers.Count, customerResponse.Count);
-                    }
+                    Assert.IsNotNull(response);
+                    Assert.AreEqual(HttpStatusCode.OK, response.StatusCode);
+                    Assert.AreEqual(customers.Count, customerResponse.Count);
                 }
+
             }
         }
     }
-}   
+}

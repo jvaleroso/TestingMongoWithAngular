@@ -21,7 +21,7 @@ module mongoAngular.Resource {
         }
 
         getCustomerById(id: string) {
-            return this.customerService.customGET('', id);
+            return this.customerService.one(id).get();
         }
 
         removeCustomer(customer) {
