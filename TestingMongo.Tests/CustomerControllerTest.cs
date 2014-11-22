@@ -39,10 +39,11 @@ namespace TestingMongo.Tests
             var config = new HttpConfiguration { IncludeErrorDetailPolicy = IncludeErrorDetailPolicy.Always };
             WebApiConfig.Register(config);
            
-            //IMPORTANT!
+            //IMPORTANT! Always set the DependencyResolver of the HttpConfiguration
             UnityWebApiActivator.PopulateConfiguration(config);
 
             var server = new HttpServer(config);
+
             //Do not put HttpMessageInvoker in using statement. Causes stack overflow
             var client = new HttpMessageInvoker(server);
 

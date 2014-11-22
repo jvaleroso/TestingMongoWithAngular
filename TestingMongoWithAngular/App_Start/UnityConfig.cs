@@ -1,11 +1,9 @@
 ﻿using System;
 using Microsoft.Practices.Unity;
-using System.Web.Http;
 using TestingMongo.Data;
 using TestingMongo.Mongo;
 using TestingMongo.Mongo.Dao;
 using TestingMongo.Services;
-using Unity.WebApi;
 
 namespace TestingMongoWithAngular
 {
@@ -39,7 +37,6 @@ namespace TestingMongoWithAngular
             container.RegisterInstance(typeof(MongoContext), new MongoContext(),
                 new ContainerControlledLifetimeManager());
 
-            //GlobalConfiguration.Configuration.DependencyResolver = new UnityDependencyResolver(container);
             return container;
         }
     }
