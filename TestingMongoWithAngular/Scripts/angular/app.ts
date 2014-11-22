@@ -10,9 +10,9 @@
                     controller: 'CustomerController as customerCtrl'
                 })
                 .otherwise({ redirectTo: '/Home' });
-        }])
-        .config(['RestangularProvider', (restangularProvider: restangular.IProvider) => {
-            restangularProvider.setBaseUrl('/api');
-            restangularProvider.setDefaultHeaders({ 'Content-Type': 'application/json' });
-        }]);
+        }
+    ])
+    .config(['RestangularProvider', (restangularProvider: restangular.IProvider) => {
+        restangularProvider.setDefaultHeaders({ 'Content-Type': 'application/json' });
+    }]);
 } 

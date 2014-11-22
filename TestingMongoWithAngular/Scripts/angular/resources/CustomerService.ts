@@ -9,7 +9,7 @@ module mongoAngular.Resource {
         private restangularService: restangular.IService;
 
         constructor(private restangular: restangular.IElement) {
-            this.customerService = restangular.all('customer');
+            this.customerService = restangular.all('api/customers');
         }
 
         saveCustomer(customer: customerModel) {
@@ -21,7 +21,7 @@ module mongoAngular.Resource {
         }
 
         getCustomerById(id: string) {
-            return this.restangular.one('customer', id).get();
+            return this.customerService.customGET('', id);
         }
 
         removeCustomer(customer) {

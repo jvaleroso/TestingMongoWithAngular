@@ -26,8 +26,8 @@
             this.showUpdateButton = false;
         }
 
-        private logError(error: Error): void {
-            console.log(error.message);
+        private logError(error): void {
+            console.log(error.data.message);
         }
 
         private resetCustomer(): void {
