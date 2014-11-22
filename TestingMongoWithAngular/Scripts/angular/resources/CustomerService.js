@@ -4,7 +4,7 @@
         var CustomerService = (function () {
             function CustomerService(restangular) {
                 this.restangular = restangular;
-                this.customerService = restangular.all('customer');
+                this.customerService = restangular.all('api/customers');
             }
             CustomerService.prototype.saveCustomer = function (customer) {
                 return this.customerService.post(customer);
@@ -15,7 +15,7 @@
             };
 
             CustomerService.prototype.getCustomerById = function (id) {
-                return this.restangular.one('customer', id).get();
+                return this.customerService.customGET('', id);
             };
 
             CustomerService.prototype.removeCustomer = function (customer) {

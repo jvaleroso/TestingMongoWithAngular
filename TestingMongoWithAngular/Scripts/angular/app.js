@@ -8,9 +8,9 @@
                 templateUrl: '/PartialViews/Home/home.html',
                 controller: 'CustomerController as customerCtrl'
             }).otherwise({ redirectTo: '/Home' });
-        }]).config([
+        }
+    ]).config([
         'RestangularProvider', function (restangularProvider) {
-            restangularProvider.setBaseUrl('/api');
             restangularProvider.setDefaultHeaders({ 'Content-Type': 'application/json' });
         }]);
 })(mongoAngular || (mongoAngular = {}));

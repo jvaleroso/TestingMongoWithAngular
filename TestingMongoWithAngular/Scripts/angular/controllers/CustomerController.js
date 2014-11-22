@@ -20,7 +20,7 @@
                 this.showUpdateButton = false;
             }
             CustomerController.prototype.logError = function (error) {
-                console.log(error.message);
+                console.log(error.data.message);
             };
 
             CustomerController.prototype.resetCustomer = function () {

@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2013
-VisualStudioVersion = 12.0.30723.0
+VisualStudioVersion = 12.0.31101.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestingMongoWithAngular", "TestingMongoWithAngular\TestingMongoWithAngular.csproj", "{009CA7D3-DB30-405D-BDC2-029B11D99958}"
 EndProject
@@ -18,6 +18,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestingMongo.Mongo", "TestingMongo.Mongo\TestingMongo.Mongo.csproj", "{1FA59B9C-B6D9-445B-96D7-1296F61560BA}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestingMongo.Services", "TestingMongo.Services\TestingMongo.Services.csproj", "{F30237AB-1459-4063-9436-9A5272E0DFB0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestingMongo.Tests", "TestingMongo.Tests\TestingMongo.Tests.csproj", "{012BBDEC-CBBD-4D60-AED0-3FB1B18D4530}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -41,6 +43,10 @@ Global
 		{F30237AB-1459-4063-9436-9A5272E0DFB0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F30237AB-1459-4063-9436-9A5272E0DFB0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F30237AB-1459-4063-9436-9A5272E0DFB0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{012BBDEC-CBBD-4D60-AED0-3FB1B18D4530}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{012BBDEC-CBBD-4D60-AED0-3FB1B18D4530}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{012BBDEC-CBBD-4D60-AED0-3FB1B18D4530}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{012BBDEC-CBBD-4D60-AED0-3FB1B18D4530}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

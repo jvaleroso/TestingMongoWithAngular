@@ -6,11 +6,12 @@ using TestingMongo.Services;
 
 namespace TestingMongoWithAngular.Controllers.Api
 {
-    public class CustomerController : ApiController
+    [RoutePrefix("api/customers")]
+    public class CustomersController : ApiController
     {
         private readonly ICustomerService _customerService;
 
-        public CustomerController(ICustomerService customerService)
+        public CustomersController(ICustomerService customerService)
         {
             _customerService = customerService;
         }
@@ -23,6 +24,7 @@ namespace TestingMongoWithAngular.Controllers.Api
         }
 
         [HttpGet]
+        [Route("{id}")]
         public HttpResponseMessage GetCustomer(string id)
         {
             var customer = _customerService.GetById(id);
