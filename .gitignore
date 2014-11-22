@@ -11,3 +11,5 @@ packages/
 *.map
 *.user
 *.suo
+TestingMongo.Tests/bin/
+TestingMongo.Tests/obj/
