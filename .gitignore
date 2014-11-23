@@ -7,9 +7,9 @@ TestingMongo.Services/obj/
 TestingMongo/bin/
 TestingMongo/obj/
 TestingMongoWithAngular/bin/
+TestingMongo.Api.Tests/bin/
+TestingMongo.Api.Tests/obj/
 packages/
 *.map
 *.user
 *.suo
-TestingMongo.Tests/bin/
-TestingMongo.Tests/obj/
