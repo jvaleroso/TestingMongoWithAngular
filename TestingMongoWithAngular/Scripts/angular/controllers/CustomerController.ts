@@ -71,15 +71,10 @@
         }
 
         public deleteCustomer(id: string) {
-
-            this.customerService.getCustomerById(id).then((c) => {
-                this.customerService.removeCustomer(c).then(
-                    () => {
-                        this.getCustomers();
-                    }, (error: Error) => {
-                        console.log(error.message);
-                    });
-            },
+            this.customerService.removeCustomer(id).then(
+                () => {
+                    this.getCustomers();
+                },
                 (error: Error) => {
                     console.log(error.message);
                 });

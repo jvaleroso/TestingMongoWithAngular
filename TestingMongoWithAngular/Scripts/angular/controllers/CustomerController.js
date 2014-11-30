@@ -65,12 +65,8 @@
 
             CustomerController.prototype.deleteCustomer = function (id) {
                 var _this = this;
-                this.customerService.getCustomerById(id).then(function (c) {
-                    _this.customerService.removeCustomer(c).then(function () {
-                        _this.getCustomers();
-                    }, function (error) {
-                        console.log(error.message);
-                    });
+                this.customerService.removeCustomer(id).then(function () {
+                    _this.getCustomers();
                 }, function (error) {
                     console.log(error.message);
                 });

@@ -18,12 +18,12 @@
                 return this.customerService.one(id).get();
             };
 
-            CustomerService.prototype.removeCustomer = function (customer) {
-                return customer.remove();
+            CustomerService.prototype.removeCustomer = function (id) {
+                return this.customerService.customDELETE('', { id: id });
             };
 
             CustomerService.prototype.updateCustomer = function (customer) {
-                return customer.put();
+                return this.customerService.customPUT(customer);
             };
             return CustomerService;
         })();

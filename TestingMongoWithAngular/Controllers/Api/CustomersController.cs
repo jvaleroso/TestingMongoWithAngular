@@ -47,9 +47,12 @@ namespace TestingMongoWithAngular.Controllers.Api
         }
 
         [HttpDelete]
-        public HttpResponseMessage DeleteCustomer(Customer customer)
+        public HttpResponseMessage DeleteCustomer(string id)
         {
+            var customer =_customerService.GetById(id);
+            if (customer != null) ;
             _customerService.Delete(customer);
+
             return Request.CreateResponse(HttpStatusCode.NoContent);
         }
     }
