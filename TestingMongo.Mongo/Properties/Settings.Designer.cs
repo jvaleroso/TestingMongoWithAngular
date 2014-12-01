@@ -34,7 +34,7 @@ namespace TestingMongo.Mongo.Properties {
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("mongo_angular_db")]
+        [global::System.Configuration.DefaultSettingValueAttribute("appharbor_9d5a91ab-b6bc-440e-a0c0-72d91afbf354")]
         public string Database {
             get {
                 return ((string)(this["Database"]));

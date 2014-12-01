@@ -6,7 +6,7 @@
       <Value Profile="(Default)">mongo_angular</Value>
     </Setting>
     <Setting Name="Database" Type="System.String" Scope="Application">
-      <Value Profile="(Default)">mongo_angular_db</Value>
+      <Value Profile="(Default)">appharbor_9d5a91ab-b6bc-440e-a0c0-72d91afbf354</Value>
     </Setting>
   </Settings>
 </SettingsFile>

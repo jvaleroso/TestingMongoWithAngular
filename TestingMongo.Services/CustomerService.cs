@@ -3,7 +3,7 @@ using TestingMongo.Data;
 
 namespace TestingMongo.Services
 {
-    public class CustomerService: ICustomerService
+    public class CustomerService : ICustomerService
     {
         private readonly ICustomerDao _customerDao;
 
