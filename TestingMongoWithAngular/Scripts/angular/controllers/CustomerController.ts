@@ -27,7 +27,7 @@
         }
 
         private logError(error): void {
-            console.log(error.data.message);
+            console.log(error);
         }
 
         private resetCustomer(): void {
