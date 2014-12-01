@@ -19,7 +19,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestingMongo.Mongo", "Testi
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestingMongo.Services", "TestingMongo.Services\TestingMongo.Services.csproj", "{F30237AB-1459-4063-9436-9A5272E0DFB0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestingMongo.Tests", "TestingMongo.Tests\TestingMongo.Tests.csproj", "{012BBDEC-CBBD-4D60-AED0-3FB1B18D4530}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestingMongo.Api.Tests", "TestingMongo.Api.Tests\TestingMongo.Api.Tests.csproj", "{012BBDEC-CBBD-4D60-AED0-3FB1B18D4530}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

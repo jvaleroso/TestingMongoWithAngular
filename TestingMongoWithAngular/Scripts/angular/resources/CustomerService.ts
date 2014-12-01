@@ -24,12 +24,12 @@ module mongoAngular.Resource {
             return this.customerService.one(id).get();
         }
 
-        removeCustomer(customer) {
-            return customer.remove();
+        removeCustomer(id:string) {
+            return this.customerService.customDELETE('', { id: id });
         }
 
         updateCustomer(customer) {
-            return customer.put();
+            return this.customerService.customPUT(customer);
         }
     }
 
